@@ -9,18 +9,14 @@ async function registerUser(name, lastname, email, phone,notes) {
         phone: phone,
         notes:notes
     }).save();
-    
+
     return user
 }
 async function getUser(email){
     return await db.user.findOne({email: email});
 }
-// async function createRecoveryCode(playerId){
-//     return await new db.email_code({ playerId: playerId }).save();
-// }
 
 module.exports = {
     getUser,
-    // createRecoveryCode,
     registerUser
 }
