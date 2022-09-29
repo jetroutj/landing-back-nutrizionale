@@ -8,10 +8,12 @@ const { registerUser,getUser } = require('../../../../controllers/user.controlle
 module.exports = (app) => {
 
 app.get('/rest/v1/user', (req, res) => {
-  res.send('hello world')
+    console.log('GET /rest/v1/user');
+  res.send('hello world Jetro')
 })
 
 app.post('/rest/v1/user',async(req, res) => {
+    console.log('POST /rest/v1/user');
 
     try {
         const createUserSchema = Joi.object({
