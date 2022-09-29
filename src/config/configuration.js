@@ -1,6 +1,6 @@
 require('dotenv').config()
 module.exports = {
-    "hostname": process.env.HOSTNAME,
+    "hostname": process.env.HOST,
     "port": process.env.PORT,
     "database":{
         "uri":process.env.DB_URI,
