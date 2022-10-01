@@ -19,7 +19,6 @@ app.post('/rest/v1/user',async(req, res) => {
         const createUserSchema = Joi.object({
             email: Joi.string().email().trim().required(),
             name: Joi.string().required(),
-            lastName: Joi.string().required(),
             phone: Joi.string().required(),
             notes:Joi.string()
         
@@ -27,13 +26,13 @@ app.post('/rest/v1/user',async(req, res) => {
         
         const validatedBody = await createUserSchema.validateAsync(req.body)
     
-        const {name,lastName,email,phone,notes} = await validatedBody
+        const {name,email,phone,notes} = await validatedBody
         
         const findEmail = await getUser(email)
         if (findEmail) {
             return res.status(400).send({status:400,message:'Este email ya existe'})  
         }
-        const user = await registerUser(name,lastName,email,phone,notes)
+        const user = await registerUser(name,email,phone,notes)
     
         return res.status(200).send({status:200,user:user,message:'OK'})
         
