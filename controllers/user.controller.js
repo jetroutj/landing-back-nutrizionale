@@ -1,10 +1,9 @@
 const db = require("../src/db");
 
-async function registerUser(name, lastname, email, phone,notes) {
+async function registerUser(name, email, phone,notes) {
 
     const user = await new db.user({
         name: name,
-        lastname: lastname,
         email: email,
         phone: phone,
         notes:notes

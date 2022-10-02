@@ -14,7 +14,7 @@ app.get('/rest/v1/user', (req, res) => {
 
 app.post('/rest/v1/user',async(req, res) => {
     console.log('POST /rest/v1/user');
-
+console.log(req.body);
     try {
         const createUserSchema = Joi.object({
             email: Joi.string().email().trim().required(),
