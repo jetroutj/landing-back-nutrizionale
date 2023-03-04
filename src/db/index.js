@@ -28,7 +28,8 @@ class Mongo{
         this.connection = mongoose.connection;
         this.connection.on('open', () => console.log("Connected to mongoDB at: " + this.urlMongo));
         this.connection.on('error', ()=>console.error("Error connecting to mongo at: "+this.urlMongo));
-       await mongoose.connect(this.urlMongo,
+        mongoose.set('strictQuery', false);
+        await mongoose.connect(this.urlMongo,
             {
                 // useFindAndModify:false,
                 useUnifiedTopology: true,
